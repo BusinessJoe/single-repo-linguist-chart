@@ -4,7 +4,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     color: $primary-color;
 }
 
@@ -14,7 +14,7 @@
     &__content{
         @include content;
         max-width: 1216px;
-        padding: 0 32px;
+        padding: 0 $padding-increment * 4;
         margin: 0 auto;
         display: flex;
         align-items: center;
@@ -36,13 +36,12 @@
 
     &:hover {
         fill: white;
-        //transition: fill 0.3s;
     }
 }
 .divider {
     background-color: $primary-border;
     width: 1px;
-    height: 32px;
+    height: $padding-increment * 4;
     display: inline-block;
     margin-left: 20px;
 }
@@ -88,7 +87,7 @@
 
 .layout {
     display: flex;
-    padding: 0 32px;
+    padding: 0 $padding-increment * 4;
     max-width: 1216px;
     min-width: 800px;
     margin: 0 auto;
@@ -127,7 +126,7 @@
 
 .user {
     position: relative;
-    top: -32px;
+    top: $padding-increment * -4;
 
     &__content {
         @include content;
@@ -295,7 +294,7 @@
     }
     &__language {
         height: 10px;
-        width: 20%;
+        width: 22%;
         background-color: $secondary-color;
         opacity: 0.8;
         margin-top: 24px;
