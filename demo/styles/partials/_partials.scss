@@ -1,0 +1,15 @@
+$primary-color: #24292e;
+$secondary-color: #586069;
+$highlight-color: #0366d6;
+$primary-border: #444d56;
+$secondary-border: #e1e4e8;
+$secondary-background: #fafbfc;
+$padding-increment: 8px;
+
+@mixin content {
+    width: 100%;
+}
+
+@mixin cta {
+    cursor: pointer;
+}
