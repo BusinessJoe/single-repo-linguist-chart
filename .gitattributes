@@ -1,1 +1,2 @@
-demo/* -linguist-documentation
+demo/scripts/* -linguist-documentation
+demo/styles/* -linguist-documentation
