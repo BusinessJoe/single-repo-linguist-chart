@@ -42,10 +42,10 @@ let buildLanguages = () => {
 
 document.querySelector('.form').addEventListener('submit', e => {
     e.preventDefault();
-    e.target.reset();
     username = e.target.user.value;
     clearFigure();
     clearArrays();
+    e.target.reset();
     if (username) {
         
         fetch(apiUrl + 'users/' + username + '/repos', {method: 'GET'}).then(response => response.json()).then(data => {
