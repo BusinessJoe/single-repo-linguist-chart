@@ -1,2 +1,4 @@
+demo/* -linguist-documentation
 demo/scripts/* -linguist-documentation
 demo/styles/* -linguist-documentation
+demo/styles/partials/* -linguist-documentation
