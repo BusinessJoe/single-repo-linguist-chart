@@ -159,14 +159,14 @@
         top: 0;
         right: -60px;
         padding-right: 8px;
-        border-left: 2px dashed $secondary-color;
+        border-left: 1px solid $secondary-color;
         height: 100%;
         display: flex;
         align-items: flex-start;
         opacity: 0;
 
         &.bb {
-            border-left: 2px dashed $highlight-color;
+            border-left: 1px solid $highlight-color;
         }
     }
     &__label {
@@ -223,11 +223,12 @@
     border-radius: $padding-increment * 0.75;
     margin-bottom: $padding-increment;
     display:flex;
+    justify-content: space-between;
 }
 .bar-language{
     height: $padding-increment;
-    border-right: 2px solid #fff;
-    min-width: 2px;
+    // border-right: 2px solid #fff;
+    // min-width: 2px;
 
     &:first-child {
         border-top-left-radius: $padding-increment;
@@ -263,7 +264,7 @@
         margin-right: 4px;
         margin-bottom: 12px;
         display: inline-block;
-        opacity: 0.8;
+        opacity: 0.6;
         border-radius: 6px;
     }
     &__title {
@@ -273,13 +274,13 @@
         background-color: $highlight-color;
         margin-bottom: 12px;
         display: inline-block;
-        opacity: 0.8;
+        opacity: 0.6;
     }
     &__line {
         height: 10px;
         width: 100%;
         background-color: $primary-color;
-        opacity: 0.8;
+        opacity: 0.6;
         margin-bottom: 10px;
         border-radius: 6px;
         &--short {
@@ -296,7 +297,7 @@
         height: 10px;
         width: 22%;
         background-color: $secondary-color;
-        opacity: 0.8;
+        opacity: 0.6;
         margin-top: 24px;
     }
     &__button {
@@ -319,13 +320,13 @@
     &__value {
         @extend .placeholder__icon;
         background-color: $primary-color;
-        opacity: 0.8;
+        opacity: 0.6;
         margin-right: 4px;
     }
     &__v-label {
         @extend .placeholder__icon;
         width: 25%;
-        opacity: 0.8;
+        opacity: 0.6;
     }
     &__section {
         border-top: 1px solid $secondary-border;
@@ -344,7 +345,7 @@
         border-radius: 50%;
         margin-right: 8px;
         background-color: $highlight-color;
-        opacity: 0.8;
+        opacity: 0.6;
         display: inline-block;
     }
 }
