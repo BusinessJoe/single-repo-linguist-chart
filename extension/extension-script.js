@@ -12,7 +12,9 @@ let addLanguageBars = () => {
     return new Promise(resolve => {
         for (let i = 0; i < languages.length; i++) {
             if ((languages[i].lines / totalLines < 0.01) && (languages[i].language != 'Other')) {
-                updateLanguage("Other", languages[i].lines);
+                let index = getLanguageIndex('Other');
+                if (index) languages[index].lines += languages[i].lines;
+                else languages.push({language: 'Other', lines: languages[i].lines});
                 languages.splice(languages.indexOf(languages[i]), 1);
                 i = 0;
             }
@@ -25,6 +27,7 @@ let addLanguageBars = () => {
 };
 
 let buildLanguages = () => {
+    // console.log(repos);
     new Promise(resolve => {
         repos.forEach((repo, ind, arr) => {
             fetch(repo + '/languages', {method: 'GET'})
@@ -33,12 +36,17 @@ let buildLanguages = () => {
             })
             .then(data => {
                 for (let i in Object.keys(data)) {
-                    updateLanguage(Object.keys(data)[i], Object.values(data)[i]);
+                    let key = Object.keys(data)[i];
+                    let value = Object.values(data)[i];
+                    let index = getLanguageIndex(key);
+                    if (index) languages[index].lines += value;
+                    else languages.push({language: key, lines: value});
                 }
                 if (ind === arr.length-1) resolve();
             });
         });
     }).then(() => {
+        // console.log(languages);
         languages.sort((a, b) => {return b.lines - a.lines});
         saveData(username, languages);
         buildBlock();
@@ -135,11 +143,6 @@ function buildBlock() {
     });
 }
 
-function updateLanguage(key, value) {
-    if (getLanguageIndex(key)) languages[getLanguageIndex(key)].lines += value;
-    else languages.push({language: key, lines: value});
-}
-
 function getLanguageIndex(key) {
     for (let i in languages) if (languages[i].language === key) return i;
     return null;
@@ -148,7 +151,6 @@ function getLanguageIndex(key) {
 function saveData(user, data) {
     let expire = new Date();
     expire.setTime(expire.getTime() + 3600000);
-    console.log(expire.toUTCString());
     document.cookie = `${user}_langs=${JSON.stringify(data)}; expires=${expire.toUTCString()}; path=/${user}`;
 }
 

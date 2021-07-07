@@ -1,7 +1,7 @@
 {
-    "name": "Github User Repo Language Bar",
+    "name": "GitHub User Linguist Chart",
     "version": "1.0",
-    "description": "A Chrome plugin that displays a bar graphic for their repo languages",
+    "description": "Chart the languages used throughout GitHub users' repos and display them as a profile section.",
     "permissions": [
         "activeTab"
       ],
@@ -16,7 +16,7 @@
         }
       ],
       "browser_action": {
-        "default_title": "Github User Repo Language Bar"
+        "default_title": "GitHub User Linguist Chart"
       },
     "manifest_version": 2
   }
