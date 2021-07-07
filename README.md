@@ -17,6 +17,7 @@ View the [interactive demo](https://mhollingshead.github.io/github-user-language
 ### Example
 
 ![Sample](./demo/img/sample.png)
+![Sample](./demo/img/sample-dark.png)
 
 ##### Notes
 * This extension uses the GitHub API to get user data. Each new user page visited requires 1 request for their repo list and `<number of repos>` requests for the languages used in each repo– making a total of `<number of repos> + 1` API requests. 

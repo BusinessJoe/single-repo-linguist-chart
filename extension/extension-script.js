@@ -82,7 +82,7 @@ function buildBar(language, totalLines) {
     let div = document.createElement('div');
     div.classList.add('bar-language');
     div.style.backgroundColor = color;
-    div.style.width = (percent * 100) + '%';
+    div.style.width = `calc(${(percent * 100)}% - (2px * ${languages.length-1} / ${languages.length}))`;
     langBar.appendChild(div);
 
     let li = document.createElement('li');
@@ -99,7 +99,7 @@ function buildBar(language, totalLines) {
     li.appendChild(label);
 
     let perc = document.createElement('div');
-    perc.classList.add('lang-percent');
+    perc.classList = 'lang-percent color-text-secondary';
     perc.innerText = (percent * 100).toFixed(1) + '%';
     li.appendChild(perc);
 
@@ -110,7 +110,7 @@ function buildBlock() {
     languages.forEach(language => {totalLines += language.lines;});
     htmlBlock = document.createElement('div');
     htmlBlock.classList = 'mt-4 extension-block';
-    htmlBlock.innerHTML += '<style>.extension-block *{box-sizing: border-box;padding: 0;margin: 0;color:#24292e;}.lang-figure{border:1px solid #e1e4e8;border-radius:6px;padding:16px 16px 4px 16px; margin-right: 0; margin-left: 0;}.lang-list{list-style:none;display:flex;flex-wrap:wrap;width:100%}.lang-item{display:flex;align-items:center;margin-right:24px;margin-bottom:8px}.lang-dot{width:8px;height:8px;border-radius:50%;margin-right:8px}.lang-label{font-size:12px;font-weight:600;margin-right:4px}.lang-percent{font-size:12px;margin-right:4px;color:#586069}.lang-bar{height:8px;width:100%;border-radius:6px;margin-bottom:8px;display:flex}.bar-language{height:8px;border-right:2px solid #fff;min-width:2px}.bar-language:first-child{border-top-left-radius:8px;border-bottom-left-radius:8px}.bar-language:last-child{border-top-right-radius:8px;border-bottom-right-radius:8px;border-right:none}</style>';
+    htmlBlock.innerHTML += '<style>.extension-block *{box-sizing: border-box;padding: 0;margin: 0;}.lang-figure{padding:16px 16px 4px 16px; margin-right: 0; margin-left: 0;}.lang-list{list-style:none;display:flex;flex-wrap:wrap;width:100%}.lang-item{display:flex;align-items:center;margin-right:24px;margin-bottom:8px}.lang-dot{width:8px;height:8px;border-radius:50%;margin-right:8px}.lang-label{font-size:12px;font-weight:600;margin-right:4px}.lang-percent{font-size:12px;margin-right:4px;}.lang-bar{height:8px;width:100%;border-radius:6px;margin-bottom:8px;display:flex;justify-content:space-between}.bar-language{height:8px;min-width:2px}.bar-language:first-child{border-top-left-radius:8px;border-bottom-left-radius:8px}.bar-language:last-child{border-top-right-radius:8px;border-bottom-right-radius:8px;border-right:none}</style>';
 
     const sectionLabel = document.createElement('h2');
     sectionLabel.classList = 'f4 mb-2 text-normal';
@@ -118,7 +118,7 @@ function buildBlock() {
     htmlBlock.appendChild(sectionLabel);
 
     const figure = document.createElement('figure');
-    figure.classList = 'lang-figure';
+    figure.classList = 'lang-figure Box';
 
     langBar = document.createElement('div');
     langBar.classList = 'lang-bar';
