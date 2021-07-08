@@ -1,55 +1,57 @@
 const apiUrl = "https://api.github.com/";
 let injectionPoint, htmlBlock, langBar, langList, username;
 let repos = []
-let languages = [];
 let totalLines = 0;
 
 if (document.querySelector('.p-nickname')) {
     username = document.querySelector('.p-nickname').innerText.replace(' ', '');
 }
 
-let addLanguageBars = () => {
+let addLanguageBars = languages => {
     return new Promise(resolve => {
         for (let i = 0; i < languages.length; i++) {
             if ((languages[i].lines / totalLines < 0.01) && (languages[i].language != 'Other')) {
-                let index = getLanguageIndex('Other');
+                let index = getLanguageIndex("Other", languages)
                 if (index) languages[index].lines += languages[i].lines;
-                else languages.push({language: 'Other', lines: languages[i].lines});
+                else languages.push({language: "Other", lines: languages[i].lines});
                 languages.splice(languages.indexOf(languages[i]), 1);
-                i = 0;
+                i--;
             }
         }
         languages.forEach((language, ind, arr) => {
-            buildBar(language, totalLines);
+            buildBar(language, totalLines, languages);
             if (ind === arr.length-1) resolve();
         });
     });
 };
 
 let buildLanguages = () => {
-    // console.log(repos);
-    new Promise(resolve => {
-        repos.forEach((repo, ind, arr) => {
-            fetch(repo + '/languages', {method: 'GET'})
+    return new Promise(resolve => {
+        let languages = [];
+        let visited = 0;
+        for (let i in repos) {
+            fetch(repos[i] + '/languages', {method: 'GET'})
             .then(response => {
                 if (response.ok) return response.json();
             })
             .then(data => {
-                for (let i in Object.keys(data)) {
-                    let key = Object.keys(data)[i];
-                    let value = Object.values(data)[i];
-                    let index = getLanguageIndex(key);
+                for (let j in Object.keys(data)) {
+                    let key = Object.keys(data)[j];
+                    let value = Object.values(data)[j];
+                    let index = getLanguageIndex(key, languages)
                     if (index) languages[index].lines += value;
                     else languages.push({language: key, lines: value});
                 }
-                if (ind === arr.length-1) resolve();
+                visited++;
             });
-        });
-    }).then(() => {
-        // console.log(languages);
-        languages.sort((a, b) => {return b.lines - a.lines});
-        saveData(username, languages);
-        buildBlock();
+        }
+        let waitForVisited = setInterval(() => {
+            if (visited === repos.length) {
+                resolve(languages);
+                clearInterval(waitForVisited);
+                console.log("Cleared Interval");
+            }
+        }, 1)
     });
 };
 
@@ -58,8 +60,8 @@ if (username) {
     let savedData = readData(username) || null;
     if (savedData) {
         console.log("Using Cookie");
-        languages = savedData;
-        buildBlock();
+        let languages = savedData;
+        buildBlock(languages);
     }
     else {
         console.log("Fetching data");
@@ -75,13 +77,19 @@ if (username) {
                         if (ind === arr.length-1) resolve();
                     });
                 })
-                .then(() => {buildLanguages();});
+                .then(() => {
+                    buildLanguages().then(languages => {
+                        languages.sort((a, b) => {return b.lines - a.lines});
+                        saveData(username, languages);
+                        buildBlock(languages);
+                    });
+                });
             }
         });
     }
 }
 
-function buildBar(language, totalLines) {
+function buildBar(language, totalLines, languages) {
     let color;
     if (languageColors[language.language]) color = languageColors[language.language].color;
     else color = '#cccccc';
@@ -114,7 +122,7 @@ function buildBar(language, totalLines) {
     langList.appendChild(li);
 }
 
-function buildBlock() {
+function buildBlock(languages) {
     languages.forEach(language => {totalLines += language.lines;});
     htmlBlock = document.createElement('div');
     htmlBlock.classList = 'mt-4 extension-block';
@@ -134,17 +142,17 @@ function buildBlock() {
     langList = document.createElement('ul');
     langList.classList = 'lang-list';
 
-    addLanguageBars().then(() => {
+    addLanguageBars(languages).then(() => {
         figure.appendChild(langBar);
         figure.appendChild(langList);
 
         htmlBlock.appendChild(figure);
-            injectionPoint.prepend(htmlBlock);
+        injectionPoint.prepend(htmlBlock);
     });
 }
 
-function getLanguageIndex(key) {
-    for (let i in languages) if (languages[i].language === key) return i;
+function getLanguageIndex(key, arr) {
+    for (let i in arr) if (arr[i].language === key) return i;
     return null;
 }
 
