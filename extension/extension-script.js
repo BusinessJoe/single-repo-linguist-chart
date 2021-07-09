@@ -123,7 +123,10 @@ function buildBar(language, totalLines, languages) {
 }
 
 function buildBlock(languages) {
-    languages.forEach(language => {totalLines += language.lines;});
+    for (i in languages) {
+        totalLines += languages[i].lines;
+    }
+    
     htmlBlock = document.createElement('div');
     htmlBlock.classList = 'mt-4 extension-block';
     htmlBlock.innerHTML += '<style>.extension-block *{box-sizing: border-box;padding: 0;margin: 0;}.lang-figure{padding:16px 16px 4px 16px; margin-right: 0; margin-left: 0;}.lang-list{list-style:none;display:flex;flex-wrap:wrap;width:100%}.lang-item{display:flex;align-items:center;margin-right:24px;margin-bottom:8px}.lang-dot{width:8px;height:8px;border-radius:50%;margin-right:8px}.lang-label{font-size:12px;font-weight:600;margin-right:4px}.lang-percent{font-size:12px;margin-right:4px;}.lang-bar{height:8px;width:100%;border-radius:6px;margin-bottom:8px;display:flex;justify-content:space-between}.bar-language{height:8px;min-width:2px}.bar-language:first-child{border-top-left-radius:8px;border-bottom-left-radius:8px}.bar-language:last-child{border-top-right-radius:8px;border-bottom-right-radius:8px;border-right:none}</style>';
