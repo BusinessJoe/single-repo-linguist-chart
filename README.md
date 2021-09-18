@@ -1,14 +1,26 @@
-# GitHub User Linguist Chart
+<div align="center">
+    <h1>GitHub User Linguist Chart</h1>
+</div>
+<div align="center">
+    <img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&border=false&title=false" alt="GitHub User Linguist Chart" />
+    <p></p>
+</div>
+<p align="center">
+    <i>Chart the languages used throughout all repositories belonging to any GitHub user.</i><br/><br/>
+</p>
 
-*Chart the languages used throughout all repositories belonging to any GitHub user.*
+* **[The extension](https://github.com/mhollingshead/github-user-language-chart-extension#chrome-extension)** automatically injects the chart as a profile section when browsing GitHub.
 
-**[The extension]()** automatically injects the chart as a profile section when browsing GitHub.
+* **[The API](https://github.com/mhollingshead/github-user-language-chart-extension#api)** generates an SVG that can be used in a profile README.md or anywhere on the web.
 
-**[The API]()** generates an SVG that can be used in a profile README.md or anywhere on the web.
+
+<div align="center"><br/></div>
 
 ## Chrome Extension
 
 Use the Chrome extension to visualize the spread of repo languages for any user. If installed and turned on, it will automatically inject the chart into any user page visited on GitHub as a profile section.
+
+
 
 ### Installation Instructions
 
@@ -18,9 +30,13 @@ Use the Chrome extension to visualize the spread of repo languages for any user.
 4. Enable **Developer Mode**.
 5. Drag the folder (`github-user-language-chart-extension-main`) anywhere on the page to import it.
 
+
+
 ### Demo
 
 View the **[interactive demo](https://mhollingshead.github.io/github-user-language-chart-extension/)** for examples of any GitHub user's chart, and what their page would look like with the extension enabled.
+
+
 
 ### Example
 
@@ -29,6 +45,8 @@ View the **[interactive demo](https://mhollingshead.github.io/github-user-langua
     <img src="./demo/img/sample.png" alt="Default light sample" width="800" />
     <p></p>
 </div>
+
+<div align="center"><br/></div>
 
 ## API
 
@@ -39,15 +57,17 @@ The API allows you to make a request to a given GitHub username's endpoint and s
 A simple implementation would look something like this:
 <div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=780" alt="Languages" /><p></p></div>
 
-#### Markdown
+**HTML**
+```html
+<img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead" alt="Languages" />
+```
+
+**Markdown**
 ```md
 ![Languages](https://github-user-linguist-chart.herokuapp.com/mhollingshead)
 ```
 
-#### HTML
-```html
-<img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead" alt="Languages" />
-```
+
 
 ### Request URLs
 
@@ -55,6 +75,8 @@ Request URLs should be structured as follows:
 ```
 https://github-user-linguist-chart.herokuapp.com/<YOUR USERNAME>?<OPTION 1>&<OPTION 2>&<...>
 ```
+
+
 
 ### Options
 
@@ -68,6 +90,8 @@ There are several options you can provide to customize the componet style:
 | `border` | `true` \| `false` | `true` | This option only applies when `background` is `true`. If `true`, a border will be added around the component. Border color varies depending on the `theme`. | 
 | `title` | `true` \| `false` | `true` | If `false`, the title will be ommitted. |
 | `title_text` | `String` (URI encoded) | `Languages` | The text contents of the component title. Be cautious of the length of your title as word-wrap currently isn't supported. |
+
+
 
 ### Examples
 
@@ -83,6 +107,11 @@ Below are some examples of various options. To use the code snippets, replace `<
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?width=600" />
 ```
 
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?width=600)
+```
+
+
 #### Background
 
 `background=true`:
@@ -92,6 +121,12 @@ Below are some examples of various options. To use the code snippets, replace `<
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&background=true" />
 ```
+
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&background=true)
+```
+
+
 
 #### Theme
 
@@ -103,7 +138,11 @@ Below are some examples of various options. To use the code snippets, replace `<
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=default_dark" />
 ```
 
-<p> </p>
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=default_dark)
+```
+
+
   
 `theme=dark_dimmed`:
 
@@ -112,8 +151,10 @@ Below are some examples of various options. To use the code snippets, replace `<
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=dark_dimmed" />
 ```
-  
-<p> </p>
+
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=dark_dimmed)
+```
 
 `theme=dark_high_contrast`:
 
@@ -123,7 +164,9 @@ Below are some examples of various options. To use the code snippets, replace `<
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=dark_high_contrast" />
 ```
   
-<p> </p>
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=dark_high_contrast)
+```
 
 `theme=universal`:
 
@@ -131,6 +174,10 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=universal" />
+```
+
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=universal)
 ```
 
 #### Border
@@ -143,6 +190,11 @@ Below are some examples of various options. To use the code snippets, replace `<
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&border=false" />
 ```
 
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&border=false)
+```
+
+
 #### Title
 
 `title=false`:
@@ -153,6 +205,11 @@ Below are some examples of various options. To use the code snippets, replace `<
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&title=false" />
 ```
 
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&title=false)
+```
+
+
 #### Title Text
 
 `title_text=My%20Repo%20Languages`:
@@ -162,6 +219,12 @@ Below are some examples of various options. To use the code snippets, replace `<
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&title_text=My%20Repo%20Languages" />
 ```
+
+```md
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&title_text=My%20Repo%20Languages)
+```
+
+<div align="center"><br/></div>
 
 ## Limits & Data
 
