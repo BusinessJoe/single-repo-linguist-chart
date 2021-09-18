@@ -6,12 +6,14 @@ injectionPoint = document.querySelector('.wrapper');
 
 let repos = []
 let languages = [
-    {language: "JavaScript", lines: 494}, 
-    {language: "HTML", lines: 320}, 
-    {language: "CSS", lines: 114}, 
-    {language: "Python", lines: 43}, 
-    {language: "C++", lines: 17}, 
-    {language: "SCSS", lines: 12}, 
+    {language: "JavaScript", lines: 500}, 
+    {language: "HTML", lines: 259}, 
+    {language: "CSS", lines: 106}, 
+    {language: "SCSS", lines: 57}, 
+    {language: "Python", lines: 36}, 
+    {language: "Lua", lines: 20},
+    {language: "C++", lines: 15}, 
+    {language: "Other", lines: 8},
 ];
 
 let addLanguageBars = () => {

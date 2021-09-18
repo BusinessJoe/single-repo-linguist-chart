@@ -1,2 +1,6 @@
 #Ignore scss map files
 *.css.map
+*/node_modules
+
+api/configs/firebase/*
+.env

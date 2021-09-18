@@ -1,6 +1,6 @@
 {
     "name": "GitHub User Linguist Chart",
-    "version": "1.0",
+    "version": "2.0",
     "description": "Chart the languages used throughout GitHub users' repos and display them as a profile section.",
     "permissions": [
         "activeTab"
@@ -8,11 +8,15 @@
       "content_scripts": [
         {
           "matches": ["https://github.com/*"],
-          "js": ["colors.js"]
+          "js": ["config/config.js"]
         },
         {
           "matches": ["https://github.com/*"],
-          "js": ["extension-script.js"]
+          "js": ["utils/apiUtils.js", "utils/cookieUtils.js", "utils/listUtils.js", "utils/componentUtils.js"]
+        },
+        {
+          "matches": ["https://github.com/*"],
+          "js": ["extension.js"]
         }
       ],
       "browser_action": {
