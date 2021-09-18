@@ -9,9 +9,9 @@
     <i>Chart the languages used throughout all repositories belonging to any GitHub user.</i><br/><br/>
 </p>
 
-* **[The extension](https://github.com/mhollingshead/github-user-language-chart-extension#chrome-extension)** automatically injects the chart as a profile section when browsing GitHub.
+* **[The extension](https://github.com/mhollingshead/github-user-linguist-chart#chrome-extension)** automatically injects the chart as a profile section when browsing GitHub.
 
-* **[The API](https://github.com/mhollingshead/github-user-language-chart-extension#api)** generates an SVG that can be used in a profile README.md or anywhere on the web.
+* **[The API](https://github.com/mhollingshead/github-user-linguist-chart#api)** generates an SVG that can be used in a profile README.md or anywhere on the web.
 
 
 <div align="center"><br/></div>
