@@ -34,7 +34,7 @@ Use the Chrome extension to visualize the spread of repo languages for any user.
 
 ### Demo
 
-View the **[interactive demo](https://mhollingshead.github.io/github-user-language-chart-extension/)** for examples of any GitHub user's chart, and what their page would look like with the extension enabled.
+View the **[interactive demo](https://mhollingshead.github.io/github-user-linguist-chart/)** for examples of any GitHub user's chart, and what their page would look like with the extension enabled.
 
 
 
