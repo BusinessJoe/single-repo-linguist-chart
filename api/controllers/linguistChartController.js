@@ -13,7 +13,7 @@ const getChart = (req, res) => {
     };
 
     res.setHeader('Content-Type', 'image/svg+xml');
-    res.setHeader('Cache-Control', `public, max-age=${86400}`);
+    res.setHeader('Cache-Control', `public, max-age=${7200}`);
 
     const template = fs.readFileSync('./template/index.html');
     const { window } = new JSDOM(template, { resources: "usable", runScripts: "dangerously" });

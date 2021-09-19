@@ -5,7 +5,7 @@ const { renderfix, roundedRect, getTextWidth } = require('./utils/raphaelUtils')
 const renderChart = (window, options) => {
     const WIDTH = options.width ? options.width < defaults.MIN_WIDTH ? defaults.MIN_WIDTH : options.width : defaults.WIDTH,
     THEME = theme[options.theme] ? options.theme : "default_light",
-    BACKGROUND = options.background === 'true' ? theme[THEME].BACKGROUND : null,
+    BACKGROUND = options.background === 'false' ? null : theme[THEME].BACKGROUND,
     BORDER = options.border === 'false' ? false : true,
     TITLE = options.title === 'false' ? false : true,
     TITLE_TEXT = options.title_text || "Languages",

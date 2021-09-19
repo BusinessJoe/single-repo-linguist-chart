@@ -2,7 +2,7 @@
     <h1>GitHub User Linguist Chart</h1>
 </div>
 <div align="center">
-    <img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&border=false&title=false" alt="GitHub User Linguist Chart" />
+    <img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&border=false&title=false" alt="GitHub User Linguist Chart" />
     <p></p>
 </div>
 <p align="center">
@@ -86,8 +86,8 @@ There are several options you can provide to customize the componet style:
 |---|---|---|---|
 | `width` | `number` (min `400`, max `2000`) | `904` | The width of the SVG image in `px`. |
 | `theme` | `default_light` \| `default_dark` \| `dark_dimmed` \| `dark_high_contrast` \| `universal` | `default_light` | The theme of the component. All GitHub themes are accepted. Additionally, `universal` uses mid-range colors that work on both dark and light backgrounds. |
-| `background` | `false` \| `true` | `false` | If `true`, a background and additional padding are added to the component. The background color varies depending on the `theme`. |
-| `border` | `true` \| `false` | `true` | This option only applies when `background` is `true`. If `true`, a border will be added around the component. Border color varies depending on the `theme`. | 
+| `background` | `true` \| `false` | `true` | If `false`, the background, border, and component padding will be removed. |
+| `border` | `true` \| `false` | `true` | This option only applies when `background` is `true`. If `false`, the outer border will be removed. | 
 | `title` | `true` \| `false` | `true` | If `false`, the title will be ommitted. |
 | `title_text` | `String` (URI encoded) | `Languages` | The text contents of the component title. Be cautious of the length of your title as word-wrap currently isn't supported. |
 
@@ -114,16 +114,16 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 #### Background
 
-`background=true`:
+`background=false`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true" alt="Languages Background Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=false" alt="Languages Background Example" /><p></p></div>
 
 ```html
-<img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&background=true" />
+<img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&background=false" />
 ```
 
 ```md
-![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&background=true)
+![Languages](https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&background=false)
 ```
 
 
@@ -132,7 +132,7 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 `theme=default_dark`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&theme=default_dark" alt="Languages Default Dark Theme Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&theme=default_dark" alt="Languages Default Dark Theme Example" /><p></p></div>
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=default_dark" />
@@ -146,7 +146,7 @@ Below are some examples of various options. To use the code snippets, replace `<
   
 `theme=dark_dimmed`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&theme=dark_dimmed" alt="Languages Dark Dimmed Theme Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&theme=dark_dimmed" alt="Languages Dark Dimmed Theme Example" /><p></p></div>
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=dark_dimmed" />
@@ -158,7 +158,7 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 `theme=dark_high_contrast`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&theme=dark_high_contrast" alt="Languages Dark High Contrast Theme Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&theme=dark_high_contrast" alt="Languages Dark High Contrast Theme Example" /><p></p></div>
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=dark_high_contrast" />
@@ -170,7 +170,7 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 `theme=universal`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&theme=universal" alt="Languages Universal Theme Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&theme=universal" alt="Languages Universal Theme Example" /><p></p></div>
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&theme=universal" />
@@ -184,7 +184,7 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 `border=false`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&theme=default_dark&border=false" alt="Languages Border Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&theme=default_dark&border=false" alt="Languages Border Example" /><p></p></div>
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&border=false" />
@@ -199,7 +199,7 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 `title=false`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&title=false&border=false" alt="Languages Title Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&title=false&border=false" alt="Languages Title Example" /><p></p></div>
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&title=false" />
@@ -214,7 +214,7 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 `title_text=My%20Repo%20Languages`:
 
-<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&background=true&title_text=My%20Repo%20Languages" alt="Languages Title Text Example" /><p></p></div>
+<div align="center"><img src="https://github-user-linguist-chart.herokuapp.com/mhollingshead?width=600&title_text=My%20Repo%20Languages" alt="Languages Title Text Example" /><p></p></div>
 
 ```html
 <img src="https://github-user-linguist-chart.herokuapp.com/<USERNAME>?<OPTS>&title_text=My%20Repo%20Languages" />
@@ -235,5 +235,4 @@ Below are some examples of various options. To use the code snippets, replace `<
 
 ### API
 * The API uses the GitHub API server-side. Each user image requested requires the same `<number of repos> + 1` amount of API requests.
-* Because the server handles all requests, user repo data is stored in a database order to reduce API requests.
-* Once accessed, user repo data will try to update 24 hours after the previous fetch. If something goes wrong or the rate-limit is reached, it will continue using the old data until it can successfully update.
+* To reduce the number of API requests made by the server, images are cached for 2 hours after rendering.
