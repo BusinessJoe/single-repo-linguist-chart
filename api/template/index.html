@@ -11,6 +11,10 @@
             URL:"https://api.github.com",
         }
 
+        const buildRepoUrl = (nickname, repo) => {
+            return `https://api.github.com/repos/${nickname}/${repo}`;
+        }
+
         const fetchRepos = nickname => {
             return fetch(`${config.URL}/users/${nickname}/repos`).then(res => res.data);
         }
@@ -75,16 +79,15 @@
         }
 
         class LinguistChart {
-            constructor(nickname) {
+            constructor(nickname, repo) {
                 this.nickname = nickname;
+                this.repo = repo;
             }
 
             init() {
                 if (!this.nickname) return;
 
-                fetchRepos(this.nickname)
-                    .then(getRepoURLs)
-                    .then(getLanguages)
+                getLanguages([buildRepoUrl(this.nickname, this.repo)])
                     .then(this.done)
                     .catch(this.error);
 
@@ -99,8 +102,8 @@
             }
         }
 
-        window.start = nickname => {
-            new LinguistChart(nickname).init();
+        window.start = (nickname, repo) => {
+            new LinguistChart(nickname, repo).init();
         }
     </script>
 </body>
